@@ -1,0 +1,85 @@
+name:                hw3
+version:             0.1.0.0
+github:              "Jovvik/hi"
+license:             MIT
+author:              "Maxim Mikhaylov"
+maintainer:          "mmikhaylov56@gmail.com"
+copyright:           "2022 Maxim Mikhaylov"
+
+extra-source-files: []
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  dependencies:
+    - bytestring
+    - containers
+    - directory
+    - ListLike
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - prettyprinter
+    - prettyprinter-ansi-terminal
+    - random
+    - scientific
+    - serialise
+    - text
+    - time
+    - transformers
+    - zlib
+
+executables:
+  hi:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - haskeline
+      - hw3
+      - prettyprinter
+      - prettyprinter-ansi-terminal
+      - containers
+      - megaparsec
+      - text
+
+tests:
+  hi-test:
+    main: Test.hs
+    source-dirs: test
+    ghc-options: -main-is Test
+    dependencies:
+      - bytestring
+      - containers
+      - generic-random
+      - megaparsec
+      - hw3
+      - tasty
+      - tasty-hspec
+      - tasty-hunit
+      - tasty-smallcheck
+      - tasty-quickcheck
+      - text
+      - time
+      - quickcheck-instances
+      - raw-strings-qq
+      - directory
+      - transformers
+      - QuickCheck
+      - template-haskell
+      - prettyprinter
+      - prettyprinter-ansi-terminal
+      - haskeline
